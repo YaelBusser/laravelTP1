@@ -16,6 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome', ['titre' => 'Killy']);
 });
-Route::get('/ping', function () {
-    return "pong";
-});
+Route::get('/ping', ['App\Http\Controllers\PingPongController', 'ping']);
+Route::get('/pong', ['App\Http\Controllers\PingPongController', 'pong']);

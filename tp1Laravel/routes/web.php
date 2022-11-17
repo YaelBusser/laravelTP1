@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\PingPongController;
+use App\Http\Controllers\Todo;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome', ['titre' => 'Killy']);
+    return view('welcome', ['titre' => 'Bonjour']);
 });
-Route::get('/ping', ['App\Http\Controllers\PingPongController', 'ping']);
+/*
+Route::get('/ping', function(){
+    return view('App\Http\Controllers\PingPongController', 'ping');
+});
 Route::get('/pong', ['App\Http\Controllers\PingPongController', 'pong']);
+*/
+Route::get('/ping', [PingPongController::class, 'ping']);
+Route::get('/ping', [PingPongController::class, 'ping']);
+Route::get('/todo', [TodoController::class, 'todo']);
+Route::get("/addTodo", [TodoController::class, "addTodo"]);
